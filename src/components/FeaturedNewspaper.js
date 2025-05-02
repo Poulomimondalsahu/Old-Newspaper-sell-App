@@ -1,6 +1,9 @@
 import React from 'react';
 import './FeaturedNewspaper.css';
 
+// Import featured image
+import featuredImage from '../assets/im11.jpeg';
+
 const FeaturedNewspaper = ({ addToCart }) => {
   const featuredItem = {
     id: 'featured1',
@@ -8,7 +11,7 @@ const FeaturedNewspaper = ({ addToCart }) => {
     itemName: 'The Times - Moon Landing Special Edition (1969)',
     itemPrice: 1299,
     description: 'Extremely rare special edition of The Times covering the historic Apollo 11 moon landing in 1969. This perfectly preserved newspaper captures one of humanity\'s greatest achievements with original photographs and firsthand reporting.',
-    imageUrl: './image/im11.jpeg',
+    imageUrl: featuredImage,
     features: [
       'Original 1969 print in excellent condition',
       'Complete coverage of the Apollo 11 mission',

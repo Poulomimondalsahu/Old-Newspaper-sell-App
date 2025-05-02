@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import './SpecialOffers.css';
 
+// Import images directly
+import offerImage1 from '../assets/im12.jpeg';
+import offerImage2 from '../assets/im13.jpeg';
+import offerImage3 from '../assets/im14.jpeg';
+import newsletterImage from '../assets/im15.jpeg';
+
 const SpecialOffers = ({ addToCart }) => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -14,7 +20,7 @@ const SpecialOffers = ({ addToCart }) => {
       originalPrice: 1499,
       offerPrice: 999,
       discount: '33%',
-      imageUrl: './image/im12.jpeg',
+      imageUrl: offerImage1,
       expiryDate: '2023-12-31',
       badge: 'Limited Time'
     },
@@ -26,7 +32,7 @@ const SpecialOffers = ({ addToCart }) => {
       originalPrice: 2999,
       offerPrice: 1999,
       discount: '33%',
-      imageUrl: './image/im13.jpeg',
+      imageUrl: offerImage2,
       expiryDate: '2023-12-15',
       badge: 'Best Seller'
     },
@@ -38,7 +44,7 @@ const SpecialOffers = ({ addToCart }) => {
       originalPrice: 599,
       offerPrice: 399,
       discount: '33%',
-      imageUrl: './image/im14.jpeg',
+      imageUrl: offerImage3,
       expiryDate: '2023-12-20',
       badge: 'New Customers'
     }

@@ -1,31 +1,37 @@
 import React from 'react';
 import './NewspaperCategories.css';
 
+// Import images directly
+import categoryImage1 from '../assets/im07.jpeg';
+import categoryImage2 from '../assets/im08.jpeg';
+import categoryImage3 from '../assets/im09.jpeg';
+import categoryImage4 from '../assets/im10.jpeg';
+
 const NewspaperCategories = () => {
   const categories = [
     {
       id: 'vintage',
       name: 'Vintage Collections',
       description: 'Newspapers from the golden era of print journalism',
-      image: './image/im07.jpeg'
+      image: categoryImage1
     },
     {
       id: 'rare',
       name: 'Rare Editions',
       description: 'Hard-to-find newspaper editions with historical significance',
-      image: './image/im08.jpeg'
+      image: categoryImage2
     },
     {
       id: 'bundles',
       name: 'Newspaper Bundles',
       description: 'Complete collections from specific time periods',
-      image: './image/im09.jpeg'
+      image: categoryImage3
     },
     {
       id: 'special',
       name: 'Special Editions',
       description: 'Commemorative issues covering major historical events',
-      image: './image/im10.jpeg'
+      image: categoryImage4
     }
   ];
 
