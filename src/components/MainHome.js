@@ -9,6 +9,9 @@ import OffersSection from './OffersSection';
 import ImageGuide from './ImageGuide';
 import ImageFileList from './ImageFileList';
 import ImageMapping from './ImageMapping';
+import FeaturesSection from './FeaturesSection';
+import PricingPlans from './PricingPlans';
+import TestimonialsSection from './TestimonialsSection';
 
 const Home = ({ addToCart })  => {
   const [productsBySell, setProductsBySell] = useState([]);
@@ -197,6 +200,15 @@ const fetchItems = async () => {
             </div>
           </div>
         </div>
+        
+        {/* Features Section */}
+        <FeaturesSection />
+        
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+        
+        {/* Pricing Plans Section */}
+        <PricingPlans />
         
         {/* Newsletter Subscription */}
         <div className="bg-light p-5 rounded mb-5">

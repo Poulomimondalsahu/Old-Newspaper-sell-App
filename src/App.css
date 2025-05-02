@@ -175,3 +175,64 @@ html {
   max-width: 500px;
   margin: 0 auto;
 }
+
+/* Features section */
+.feature-icon-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.feature-icon-container i {
+  font-size: 1.75rem;
+}
+
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Pricing section */
+.pricing-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.pricing-toggle .form-check-input {
+  cursor: pointer;
+}
+
+/* Testimonials section */
+.testimonial-card {
+  border-radius: 12px;
+  position: relative;
+}
+
+.testimonial-quote {
+  position: relative;
+  padding-left: 1rem;
+  font-style: italic;
+  min-height: 120px;
+}
+
+.client-logo {
+  transition: opacity 0.3s ease;
+}
+
+.client-logo:hover {
+  opacity: 1 !important;
+}
