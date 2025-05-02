@@ -26,6 +26,7 @@ import Menu from './components/Menu';
 import EditProduct from './components/admin/EditProduct';
 import { ToastContainer, toast } from 'react-toastify';
 import Orders from './components/admin/Orders';
+import Footer from './components/Footer';
 import { AuthContext } from './context/AuthContext';
 function App() {
 	const notify = () => toast("Wow so easy!");
