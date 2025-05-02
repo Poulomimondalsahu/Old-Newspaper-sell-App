@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupon Offers Demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Coupon Offers Section Styles */
+        .offer-category-section {
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .offer-category-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .coupon-code {
+            border: 1px dashed #ccc;
+            background: repeating-linear-gradient(
+                45deg,
+                #f8f9fa,
+                #f8f9fa 10px,
+                #f1f3f5 10px,
+                #f1f3f5 20px
+            ) !important;
+            padding: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .coupon-header .badge {
+            font-size: 1rem;
+            padding: 0.5rem 1rem !important;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .offer-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .offer-card {
+            animation: fadeIn 0.5s ease-in-out forwards;
+            animation-delay: calc(var(--animation-order) * 0.1s);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Old Newspaper Sell App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Newspapers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Offers</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#" class="btn btn-outline-light me-2">Login</a>
+                    <a href="#" class="btn btn-light">Cart (0)</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="coupon-header text-center mb-5">
+            <div class="badge bg-danger p-2 mb-3">EXCLUSIVE OFFERS</div>
+            <h1 class="display-4 fw-bold">Save Big with Coupon Codes</h1>
+            <p class="lead">Discover our collection of discount coupons for every occasion</p>
+        </div>
+
+        <!-- 10% OFF DEALS -->
+        <div class="offer-category-section bg-primary">
+            <div class="p-4 d-flex align-items-center">
+                <div class="category-icon me-3">
+                    <i class="bi bi-percent text-white fs-1"></i>
+                </div>
+                <div>
+                    <h3 class="text-white mb-1">10% OFF DEALS</h3>
+                    <p class="text-white mb-0 opacity-75">Special discounts for new customers and small orders</p>
+                </div>
+            </div>
+            
+            <div class="p-3 bg-white rounded-bottom">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 1">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">NEW CUSTOMER</h5>
+                                    <span class="badge bg-secondary">#10-1</span>
+                                </div>
+                                <p class="card-text">10% off your first order when you sign up</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">No expiration</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">₹200</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">WELCOME10</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="WELCOME10">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 2">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">WEEKEND SPECIAL</h5>
+                                    <span class="badge bg-secondary">#10-2</span>
+                                </div>
+                                <p class="card-text">10% off all orders placed on weekends</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Every Sat-Sun</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">₹300</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">WEEKEND10</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="WEEKEND10">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 3">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">NEWSLETTER SIGNUP</h5>
+                                    <span class="badge bg-secondary">#10-3</span>
+                                </div>
+                                <p class="card-text">10% off when you subscribe to our newsletter</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">One-time use</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Any purchase</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">NEWS10</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="NEWS10">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 20% OFF DEALS -->
+        <div class="offer-category-section bg-success">
+            <div class="p-4 d-flex align-items-center">
+                <div class="category-icon me-3">
+                    <i class="bi bi-tag-fill text-white fs-1"></i>
+                </div>
+                <div>
+                    <h3 class="text-white mb-1">20% OFF DEALS</h3>
+                    <p class="text-white mb-0 opacity-75">Medium discounts for regular customers and bundle purchases</p>
+                </div>
+            </div>
+            
+            <div class="p-3 bg-white rounded-bottom">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 4">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">BUNDLE SAVER</h5>
+                                    <span class="badge bg-secondary">#20-1</span>
+                                </div>
+                                <p class="card-text">20% off when you buy 3 or more newspapers</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Ongoing</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">3+ items</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">BUNDLE20</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="BUNDLE20">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 5">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">DECADE COLLECTION</h5>
+                                    <span class="badge bg-secondary">#20-2</span>
+                                </div>
+                                <p class="card-text">20% off when you buy newspapers from the same decade</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Limited time</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">2+ items from same decade</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">DECADE20</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="DECADE20">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 6">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">RETURN CUSTOMER</h5>
+                                    <span class="badge bg-secondary">#20-3</span>
+                                </div>
+                                <p class="card-text">20% off your second order</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">30 days after first purchase</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">₹500</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">RETURN20</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="RETURN20">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 30% OFF DEALS -->
+        <div class="offer-category-section bg-danger">
+            <div class="p-4 d-flex align-items-center">
+                <div class="category-icon me-3">
+                    <i class="bi bi-lightning-fill text-white fs-1"></i>
+                </div>
+                <div>
+                    <h3 class="text-white mb-1">30% OFF DEALS</h3>
+                    <p class="text-white mb-0 opacity-75">Major discounts on premium collections and bulk orders</p>
+                </div>
+            </div>
+            
+            <div class="p-3 bg-white rounded-bottom">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 7">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">FLASH SALE</h5>
+                                    <span class="badge bg-secondary">#30-1</span>
+                                </div>
+                                <p class="card-text">30% off selected vintage newspapers</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Next 48 hours</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Any purchase</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">FLASH30</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="FLASH30">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 8">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">BULK ORDER</h5>
+                                    <span class="badge bg-secondary">#30-2</span>
+                                </div>
+                                <p class="card-text">30% off when you buy 5 or more newspapers</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Ongoing</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">5+ items</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">BULK30</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="BULK30">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 9">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">PREMIUM COLLECTION</h5>
+                                    <span class="badge bg-secondary">#30-3</span>
+                                </div>
+                                <p class="card-text">30% off our premium historical newspapers</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Limited time</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Premium items only</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">PREMIUM30</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="PREMIUM30">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SPECIAL OCCASIONS -->
+        <div class="offer-category-section bg-warning">
+            <div class="p-4 d-flex align-items-center">
+                <div class="category-icon me-3">
+                    <i class="bi bi-gift text-dark fs-1"></i>
+                </div>
+                <div>
+                    <h3 class="text-dark mb-1">SPECIAL OCCASIONS</h3>
+                    <p class="text-dark mb-0 opacity-75">Celebrate special days with exclusive discounts</p>
+                </div>
+            </div>
+            
+            <div class="p-3 bg-white rounded-bottom">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 10">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">BIRTHDAY SPECIAL</h5>
+                                    <span class="badge bg-secondary">#spec-1</span>
+                                </div>
+                                <p class="card-text">25% off newspapers from your birth year</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Valid during your birthday month</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Any purchase</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">BIRTHDAY25</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="BIRTHDAY25">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 11">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">ANNIVERSARY GIFT</h5>
+                                    <span class="badge bg-secondary">#spec-2</span>
+                                </div>
+                                <p class="card-text">15% off newspapers from your anniversary year</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Valid during your anniversary month</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Any purchase</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">ANNIV15</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="ANNIV15">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 12">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">HOLIDAY SEASON</h5>
+                                    <span class="badge bg-secondary">#spec-3</span>
+                                </div>
+                                <p class="card-text">20% off all newspapers during holiday season</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Dec 1 - Jan 15</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">₹400</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">HOLIDAY20</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="HOLIDAY20">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CATEGORY DISCOUNTS -->
+        <div class="offer-category-section bg-info">
+            <div class="p-4 d-flex align-items-center">
+                <div class="category-icon me-3">
+                    <i class="bi bi-newspaper text-dark fs-1"></i>
+                </div>
+                <div>
+                    <h3 class="text-dark mb-1">CATEGORY DISCOUNTS</h3>
+                    <p class="text-dark mb-0 opacity-75">Special offers for specific newspaper categories</p>
+                </div>
+            </div>
+            
+            <div class="p-3 bg-white rounded-bottom">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 13">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">SPORTS COLLECTION</h5>
+                                    <span class="badge bg-secondary">#cat-1</span>
+                                </div>
+                                <p class="card-text">15% off all sports newspapers</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Ongoing</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Sports category only</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">SPORTS15</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="SPORTS15">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 14">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">POLITICAL EVENTS</h5>
+                                    <span class="badge bg-secondary">#cat-2</span>
+                                </div>
+                                <p class="card-text">20% off newspapers covering major political events</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Limited time</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Politics category only</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">POLITICS20</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="POLITICS20">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 15">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">HISTORICAL MOMENTS</h5>
+                                    <span class="badge bg-secondary">#cat-3</span>
+                                </div>
+                                <p class="card-text">25% off newspapers from significant historical moments</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Ongoing</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Historical category only</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">HISTORY25</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="HISTORY25">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- REFERRAL & LOYALTY -->
+        <div class="offer-category-section bg-dark">
+            <div class="p-4 d-flex align-items-center">
+                <div class="category-icon me-3">
+                    <i class="bi bi-award text-white fs-1"></i>
+                </div>
+                <div>
+                    <h3 class="text-white mb-1">REFERRAL & LOYALTY</h3>
+                    <p class="text-white mb-0 opacity-75">Rewards for loyal customers and referrals</p>
+                </div>
+            </div>
+            
+            <div class="p-3 bg-white rounded-bottom">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 16">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">REFER A FRIEND</h5>
+                                    <span class="badge bg-secondary">#loyal-1</span>
+                                </div>
+                                <p class="card-text">15% off for you and your friend</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">Unlimited usage</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Any purchase</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">REFER15</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="REFER15">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 17">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">LOYALTY REWARD</h5>
+                                    <span class="badge bg-secondary">#loyal-2</span>
+                                </div>
+                                <p class="card-text">25% off after your 5th purchase</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">After 5th purchase</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Any purchase</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">LOYAL25</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="LOYAL25">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card offer-card" style="--animation-order: 18">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h5 class="card-title">SOCIAL MEDIA SHARE</h5>
+                                    <span class="badge bg-secondary">#loyal-3</span>
+                                </div>
+                                <p class="card-text">10% off when you share your purchase on social media</p>
+                                
+                                <div class="coupon-details mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <small class="text-muted">Valid Until:</small>
+                                        <small class="fw-bold">One-time use per order</small>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-muted">Min Purchase:</small>
+                                        <small class="fw-bold">Any purchase</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="coupon-code">
+                                    <span class="fw-bold">SOCIAL10</span>
+                                    <button class="btn btn-sm btn-outline-primary copy-btn" data-code="SOCIAL10">
+                                        <i class="bi bi-clipboard me-1"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                <button class="btn btn-sm btn-primary w-100">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5 p-4 bg-light rounded shadow-sm">
+            <h4>Can't decide which offer to use?</h4>
+            <p class="lead mb-4">Contact our customer support for personalized recommendations</p>
+            <button class="btn btn-primary btn-lg">
+                <i class="bi bi-headset me-2"></i>
+                Contact Support
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Old Newspaper Sell App</h5>
+                    <p>Preserving history, one newspaper at a time.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2023 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Copy coupon code functionality
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const code = this.getAttribute('data-code');
+                navigator.clipboard.writeText(code).then(() => {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="bi bi-check-lg me-1"></i> Copied!';
+                    this.classList.remove('btn-outline-primary');
+                    this.classList.add('btn-success');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('btn-success');
+                        this.classList.add('btn-outline-primary');
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
