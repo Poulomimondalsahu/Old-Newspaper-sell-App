@@ -273,16 +273,7 @@ const OffersSection = () => {
         </div>
       </div>
       
-      {/* Add CSS for animations */}
-      <style jsx="true">{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .offer-card {
-          opacity: 0;
-        }
-      `}</style>
+      {/* CSS is now in custom.css */}
     </div>
   );
 };

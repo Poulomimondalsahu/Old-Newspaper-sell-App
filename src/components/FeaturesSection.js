@@ -301,38 +301,7 @@ const FeaturesSection = () => {
         </div>
       </div>
       
-      {/* Custom CSS for this component */}
-      <style jsx="true">{`
-        .offer-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .offer-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-        }
-        
-        .coupon-code {
-          border: 1px dashed #ccc;
-          background: repeating-linear-gradient(
-            45deg,
-            #f8f9fa,
-            #f8f9fa 10px,
-            #f1f3f5 10px,
-            #f1f3f5 20px
-          ) !important;
-        }
-        
-        .category-icon {
-          width: 60px;
-          height: 60px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.2);
-        }
-      `}</style>
+      {/* CSS is now in custom.css */}
     </div>
   );
 };
