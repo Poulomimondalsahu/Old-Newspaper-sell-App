@@ -1,0 +1,57 @@
+import React from 'react';
+import TestimonialCard from './TestimonialCard';
+import './Testimonials.css';
+
+// Import images directly
+import testimonialImage1 from '../assets/im17.jpeg';
+import testimonialImage2 from '../assets/im01.jpeg';
+import testimonialImage3 from '../assets/im02.jpg';
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: 'John Doe',
+      role: 'Collector',
+      text: 'I\'ve been collecting newspapers for over 20 years, and this is by far the best place to find rare editions. The quality and authenticity are unmatched!',
+      rating: 5,
+      image: testimonialImage1
+    },
+    {
+      id: 2,
+      name: 'Mary Smith',
+      role: 'Historian',
+      text: 'As a historian, I rely on authentic sources for my research. The newspapers I\'ve purchased here have been invaluable for my work on 20th century events.',
+      rating: 5,
+      image: testimonialImage2
+    },
+    {
+      id: 3,
+      name: 'Robert Johnson',
+      role: 'Enthusiast',
+      text: 'I bought a bundle of 1970s newspapers as a gift for my father. He was thrilled to revisit the headlines from his youth. Great service and fast delivery!',
+      rating: 4,
+      image: testimonialImage3
+    }
+  ];
+
+  return (
+    <div className="testimonials-container">
+      <h2 className="testimonials-title">What Our Customers Say</h2>
+      <div className="testimonials-grid">
+        {testimonials.map(testimonial => (
+          <TestimonialCard 
+            key={testimonial.id}
+            name={testimonial.name}
+            role={testimonial.role}
+            text={testimonial.text}
+            rating={testimonial.rating}
+            image={testimonial.image}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Testimonials;
