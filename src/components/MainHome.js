@@ -8,6 +8,7 @@ import NewspaperSection from './NewspaperSection';
 import OffersSection from './OffersSection';
 import ImageGuide from './ImageGuide';
 import ImageFileList from './ImageFileList';
+import ImageMapping from './ImageMapping';
 
 const Home = ({ addToCart })  => {
   const [productsBySell, setProductsBySell] = useState([]);
@@ -109,9 +110,13 @@ const fetchItems = async () => {
                 <div className="card h-100 shadow-sm">
                   <div className='product-img' style={{ height: '250px' }}>
                     <img
-                      src={`http://localhost:8185/images/${item.filename}`}
+                      src={`/${item.filename}`}
                       alt={item.itemName}
                       className='mb-3'
+                      onError={(e) => {
+                        // If the local image fails to load, use a placeholder
+                        e.target.src = 'https://via.placeholder.com/400x300?text=Newspaper+Image';
+                      }}
                       style={{
                         objectFit: 'contain',
                         height: '100%',
@@ -255,6 +260,10 @@ const fetchItems = async () => {
             
             <div className="mt-4">
               <ImageFileList />
+            </div>
+            
+            <div className="mt-4">
+              <ImageMapping />
             </div>
           </div>
         </div>

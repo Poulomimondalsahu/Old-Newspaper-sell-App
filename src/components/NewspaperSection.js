@@ -144,7 +144,7 @@ const NewspaperSection = ({ addToCart }) => {
                     <div className="card-img-container" style={{ height: '200px', overflow: 'hidden' }}>
                       <img 
                         src={newspaper.filename ? 
-                          `http://localhost:8185/images/${newspaper.filename}` : 
+                          `/${newspaper.filename}` : 
                           newspaper.imageUrl} 
                         className="card-img-top" 
                         alt={newspaper.itemName}
