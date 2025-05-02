@@ -1,5 +1,5 @@
 @echo off
-echo ===== SIMPLE BUILD SCRIPT WITH LOGS =====
+echo ===== DEPLOYMENT SCRIPT WITH LOGS =====
 echo.
 
 echo Step 1: Creating logs directory...
@@ -17,7 +17,7 @@ if exist node_modules\react-scripts (
 )
 echo.
 
-echo Step 3: Attempting to build with logs...
+echo Step 3: Building application with logs...
 echo Building... (This may take a few minutes)
 echo y | npx react-scripts build > logs\build.log 2>&1
 if %ERRORLEVEL% NEQ 0 (
@@ -26,6 +26,9 @@ if %ERRORLEVEL% NEQ 0 (
     call node node_modules\react-scripts\scripts\build.js > logs\build-alt.log 2>&1
     if %ERRORLEVEL% NEQ 0 (
         echo Alternative build also failed! See logs\build-alt.log for details
+        type logs\build.log
+        echo.
+        type logs\build-alt.log
     ) else (
         echo Alternative build succeeded! See logs\build-alt.log for details
     )
@@ -43,7 +46,7 @@ if exist build (
 )
 echo.
 
-echo ===== BUILD PROCESS COMPLETE =====
+echo ===== DEPLOYMENT PROCESS COMPLETE =====
 echo.
 echo All logs are saved in the logs directory
 echo.
