@@ -27,6 +27,7 @@ import EditProduct from './components/admin/EditProduct';
 import { ToastContainer, toast } from 'react-toastify';
 import Orders from './components/admin/Orders';
 import { AuthContext } from './context/AuthContext';
+import ImageGuide from './components/ImageGuide';
 function App() {
 	const notify = () => toast("Wow so easy!");
 	const [cartItems, setCartItems] = useState([]);

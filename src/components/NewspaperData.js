@@ -1,4 +1,6 @@
 // Sample newspaper data for the Best Sellers section
+// Note: The 'filename' property indicates the name of the image file that should be placed in your images folder
+// The 'imageUrl' property is used as a fallback if the local image is not available
 export const newspapers = [
   {
     id: 'np1',

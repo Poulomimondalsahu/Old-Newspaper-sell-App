@@ -6,6 +6,8 @@ import Menu from './Menu';
 import {deleteItem, getItems} from "./services/ProductService";
 import NewspaperSection from './NewspaperSection';
 import OffersSection from './OffersSection';
+import ImageGuide from './ImageGuide';
+import ImageFileList from './ImageFileList';
 
 const Home = ({ addToCart })  => {
   const [productsBySell, setProductsBySell] = useState([]);
@@ -203,6 +205,56 @@ const fetchItems = async () => {
                 <input type="email" className="form-control" placeholder="Your email address" />
                 <button className="btn btn-primary" type="button">Subscribe</button>
               </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Image Guide Section */}
+        <div className="card mb-5">
+          <div className="card-header bg-info text-white">
+            <h4 className="mb-0"><i className="bi bi-info-circle-fill me-2"></i>Image Guide for Newspaper App</h4>
+          </div>
+          <div className="card-body">
+            <div className="row">
+              <div className="col-md-6">
+                <h5>Where to Place Your Images</h5>
+                <p>Based on the code, your images should be placed in:</p>
+                <div className="bg-light p-3 mb-3 rounded">
+                  <code>http://localhost:8185/images/</code>
+                </div>
+                <p>This suggests that your backend server is serving images from a folder named "images" at port 8185.</p>
+                
+                <h6 className="mt-4">Alternative Approach:</h6>
+                <ol>
+                  <li>Create an "images" folder in the "public" directory</li>
+                  <li>Place your newspaper images there</li>
+                  <li>Update image paths in the code to use: <code>/images/filename.jpg</code></li>
+                </ol>
+              </div>
+              <div className="col-md-6">
+                <h5>Recommended Number of Images</h5>
+                <ul className="list-group mb-4">
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    Best Sellers section
+                    <span className="badge bg-primary rounded-pill">6-9 images</span>
+                  </li>
+                  <li className="list-group-item d-flex justify-content-between align-items-center">
+                    Newspaper Collection section
+                    <span className="badge bg-primary rounded-pill">9-12 images</span>
+                  </li>
+                </ul>
+                
+                <h5>Image Requirements:</h5>
+                <ul className="list-group">
+                  <li className="list-group-item">Format: JPG, PNG or WebP</li>
+                  <li className="list-group-item">Size: 500px × 500px (minimum)</li>
+                  <li className="list-group-item">File size: Less than 1MB per image</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mt-4">
+              <ImageFileList />
             </div>
           </div>
         </div>

@@ -143,9 +143,17 @@ const NewspaperSection = ({ addToCart }) => {
                     )}
                     <div className="card-img-container" style={{ height: '200px', overflow: 'hidden' }}>
                       <img 
-                        src={newspaper.imageUrl} 
+                        src={newspaper.filename ? 
+                          `http://localhost:8185/images/${newspaper.filename}` : 
+                          newspaper.imageUrl} 
                         className="card-img-top" 
                         alt={newspaper.itemName}
+                        onError={(e) => {
+                          // If the local image fails to load, fall back to the remote URL
+                          if (e.target.src !== newspaper.imageUrl) {
+                            e.target.src = newspaper.imageUrl;
+                          }
+                        }}
                         style={{
                           objectFit: 'cover',
                           height: '100%',
