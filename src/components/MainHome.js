@@ -12,10 +12,7 @@ import Testimonials from './Testimonials';
 import NewspaperGallery from './NewspaperGallery';
 import SubscriptionPlans from './SubscriptionPlans';
 import NewspaperTimeline from './NewspaperTimeline';
-import Testimonials from './Testimonials';
-import NewspaperGallery from './NewspaperGallery';
-import SubscriptionPlans from './SubscriptionPlans';
-import NewspaperTimeline from './NewspaperTimeline';
+import ImageTest from './ImageTest';
 import {deleteItem, getItems} from "./services/ProductService"
 
 const Home = ({ addToCart })  => {
@@ -79,7 +76,7 @@ const fetchItems = async () => {
       
       {/* Hero Banner */}
       <div className="hero-banner" style={{
-        backgroundImage: 'url(/image/im16.jpeg)',
+        backgroundImage: 'url(./image/im16.jpeg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '500px',
@@ -179,11 +176,10 @@ const fetchItems = async () => {
       <SubscriptionPlans />
       
       {/* Testimonials Section */}
-      <Testimonials /Subscription Plans Section */}
-      <SubscriptionPlans />
-      
-      {/* Testimonials Section */}
       <Testimonials />
+      
+      {/* Image Test Section */}
+      <ImageTest />
     </div>
   );
 };

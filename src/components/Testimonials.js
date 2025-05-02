@@ -10,7 +10,7 @@ const Testimonials = () => {
       role: 'Collector',
       text: 'I\'ve been collecting newspapers for over 20 years, and this is by far the best place to find rare editions. The quality and authenticity are unmatched!',
       rating: 5,
-      image: '/image/im17.jpeg'
+      image: './image/im17.jpeg'
     },
     {
       id: 2,

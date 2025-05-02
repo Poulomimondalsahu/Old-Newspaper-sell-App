@@ -7,25 +7,25 @@ const NewspaperCategories = () => {
       id: 'vintage',
       name: 'Vintage Collections',
       description: 'Newspapers from the golden era of print journalism',
-      image: '/image/im07.jpeg'
+      image: './image/im07.jpeg'
     },
     {
       id: 'rare',
       name: 'Rare Editions',
       description: 'Hard-to-find newspaper editions with historical significance',
-      image: '/image/im08.jpeg'
+      image: './image/im08.jpeg'
     },
     {
       id: 'bundles',
       name: 'Newspaper Bundles',
       description: 'Complete collections from specific time periods',
-      image: '/image/im09.jpeg'
+      image: './image/im09.jpeg'
     },
     {
       id: 'special',
       name: 'Special Editions',
       description: 'Commemorative issues covering major historical events',
-      image: '/image/im10.jpeg'
+      image: './image/im10.jpeg'
     }
   ];
 

@@ -14,7 +14,7 @@ const SpecialOffers = ({ addToCart }) => {
       originalPrice: 1499,
       offerPrice: 999,
       discount: '33%',
-      imageUrl: '/image/im12.jpeg',
+      imageUrl: './image/im12.jpeg',
       expiryDate: '2023-12-31',
       badge: 'Limited Time'
     },
@@ -26,7 +26,7 @@ const SpecialOffers = ({ addToCart }) => {
       originalPrice: 2999,
       offerPrice: 1999,
       discount: '33%',
-      imageUrl: '/image/im13.jpeg',
+      imageUrl: './image/im13.jpeg',
       expiryDate: '2023-12-15',
       badge: 'Best Seller'
     },
@@ -38,7 +38,7 @@ const SpecialOffers = ({ addToCart }) => {
       originalPrice: 599,
       offerPrice: 399,
       discount: '33%',
-      imageUrl: '/image/im14.jpeg',
+      imageUrl: './image/im14.jpeg',
       expiryDate: '2023-12-20',
       badge: 'New Customers'
     }
@@ -130,7 +130,7 @@ const SpecialOffers = ({ addToCart }) => {
           )}
         </div>
         <div className="newsletter-image">
-          <img src="/image/im15.jpeg" alt="Newsletter" />
+          <img src="./image/im15.jpeg" alt="Newsletter" />
         </div>
       </div>
       
