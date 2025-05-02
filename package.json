@@ -27,7 +27,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start-alt": "node node_modules/react-scripts/scripts/start.js",
-    "build-alt": "node node_modules/react-scripts/scripts/build.js"
+    "build-alt": "node node_modules/react-scripts/scripts/build.js",
+    "build-with-logs": "react-scripts build > logs/build.log 2>&1",
+    "build-debug": "set NODE_ENV=development && react-scripts build > logs/build-debug.log 2>&1"
   },
   "eslintConfig": {
     "extends": [
