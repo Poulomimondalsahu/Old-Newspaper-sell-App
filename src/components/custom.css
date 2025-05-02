@@ -1,5 +1,55 @@
 /* Custom CSS for Old Newspaper Sell App */
 
+/* Coupon Offers Section Styles */
+.offer-category-section {
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-category-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.coupon-code {
+  border: 1px dashed #ccc;
+  background: repeating-linear-gradient(
+    45deg,
+    #f8f9fa,
+    #f8f9fa 10px,
+    #f1f3f5 10px,
+    #f1f3f5 20px
+  ) !important;
+}
+
+.category-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+
+.coupon-header .badge {
+  font-size: 1rem;
+  padding: 0.5rem 1rem !important;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* Flipkart-style Offers Section */
 .offers-section .offer-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;

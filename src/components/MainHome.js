@@ -434,7 +434,14 @@ const Home = ({ addToCart })  => {
           </div>
         </div>
         
-        {/* Features Section */}
+        {/* Coupon Offers Section */}
+        <div className="container mb-4">
+          <div className="coupon-header text-center mb-4">
+            <div className="badge bg-danger p-2 mb-3">EXCLUSIVE OFFERS</div>
+            <h2 className="display-5 fw-bold">Save Big with Coupon Codes</h2>
+            <p className="lead">Discover our collection of discount coupons for every occasion</p>
+          </div>
+        </div>
         <FeaturesSection />
         
         {/* Testimonials Section */}
