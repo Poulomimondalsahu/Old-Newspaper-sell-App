@@ -1,0 +1,6 @@
+@echo off
+echo Installing dependencies...
+call npm install --force
+echo Starting the application...
+call npx react-scripts start
+pause
