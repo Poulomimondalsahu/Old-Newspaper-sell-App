@@ -15,6 +15,9 @@ import NewspaperTimeline from './NewspaperTimeline';
 import ImageTest from './ImageTest';
 import {deleteItem, getItems} from "./services/ProductService"
 
+// Import hero banner image
+import heroBannerImage from '../assets/im01.jpeg';
+
 const Home = ({ addToCart })  => {
   const [productsBySell, setProductsBySell] = useState([]);
   const [productsByArrival, setProductsByArrival] = useState([]);
@@ -76,7 +79,7 @@ const fetchItems = async () => {
       
       {/* Hero Banner */}
       <div className="hero-banner" style={{
-        backgroundImage: 'url(./image/im16.jpeg)',
+        backgroundImage: `url(${heroBannerImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '500px',
@@ -110,12 +113,6 @@ const fetchItems = async () => {
       
       {/* Newspaper Best Sellers Section */}
       <BestSellers addToCart={addToCart} />
-      
-      {/* Historic Newspaper Gallery */}
-      <NewspaperGallery />
-      
-      {/* Newspaper Timeline */}
-      <NewspaperTimeline />
       
       {/* Newspaper Categories Section */}
       <NewspaperCategories />

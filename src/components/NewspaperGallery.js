@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import './NewspaperGallery.css';
 
+// Import images directly
+import galleryImage1 from '../assets/im01.jpeg';
+import galleryImage2 from '../assets/im02.jpg';
+import galleryImage3 from '../assets/im03.jpg';
+import galleryImage4 from '../assets/im04.jpeg';
+import galleryImage5 from '../assets/im05.jpeg';
+import galleryImage6 from '../assets/im06.jpeg';
+
 const NewspaperGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   
@@ -9,42 +17,42 @@ const NewspaperGallery = () => {
       id: 'gallery1',
       title: 'The New York Times - 1969 Moon Landing',
       description: 'Historic front page covering the Apollo 11 moon landing',
-      image: '/image/im03.jpg',
+      image: galleryImage1,
       year: '1969'
     },
     {
       id: 'gallery2',
       title: 'The Washington Post - Watergate Scandal',
       description: 'Coverage of the Watergate scandal that led to President Nixon\'s resignation',
-      image: '/image/im04.jpeg',
+      image: galleryImage2,
       year: '1974'
     },
     {
       id: 'gallery3',
       title: 'The Guardian - Berlin Wall Falls',
       description: 'Historic coverage of the fall of the Berlin Wall',
-      image: '/image/im05.jpeg',
+      image: galleryImage3,
       year: '1989'
     },
     {
       id: 'gallery4',
       title: 'The Times - Royal Wedding',
       description: 'Coverage of the wedding of Prince Charles and Lady Diana',
-      image: '/image/im06.jpeg',
+      image: galleryImage4,
       year: '1981'
     },
     {
       id: 'gallery5',
       title: 'The Herald - End of World War II',
       description: 'Victory celebration coverage at the end of World War II',
-      image: '/image/im07.jpeg',
+      image: galleryImage5,
       year: '1945'
     },
     {
       id: 'gallery6',
       title: 'The Chronicle - First Super Bowl',
       description: 'Coverage of the first Super Bowl game in sports history',
-      image: '/image/im08.jpeg',
+      image: galleryImage6,
       year: '1967'
     }
   ];
