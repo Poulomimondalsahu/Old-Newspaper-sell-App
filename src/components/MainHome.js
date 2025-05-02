@@ -3,7 +3,9 @@ import { useCart } from './CartContext';
 import axios from 'axios';
 import Header from './Header';
 import Menu from './Menu';
-import {deleteItem, getItems} from "./services/ProductService"
+import {deleteItem, getItems} from "./services/ProductService";
+import NewspaperSection from './NewspaperSection';
+
 const Home = ({ addToCart })  => {
   const [productsBySell, setProductsBySell] = useState([]);
   const [productsByArrival, setProductsByArrival] = useState([]);
@@ -67,7 +69,14 @@ const fetchItems = async () => {
       <div className='col-md-1'></div>
       <div className='col-md-10'>
        
-        
+        {/* Hero Banner */}
+        <div className="jumbotron bg-light p-5 rounded mt-4 mb-5">
+          <h1 className="display-4">Welcome to Old Newspaper Sell App</h1>
+          <p className="lead">Discover vintage newspapers and historical collections from around the world.</p>
+          <hr className="my-4" />
+          <p>Browse our extensive collection of newspapers from different eras and regions.</p>
+          <a className="btn btn-primary btn-lg" href="#newspaper-section" role="button">Explore Collection</a>
+        </div>
 
         <h2 className='mb-2 mt-4'>Best Sellers</h2>
         <div className='row'>
@@ -94,10 +103,56 @@ const fetchItems = async () => {
                   ₹ <span className='text-red-500'>{item.itemPrice}</span>
                 </h2>
               </div>
-              <button className='btn btn-primary' onClick={() =>addToCart(item)}>Add to cart</button>
+              <div className="d-flex justify-content-between mt-2">
+                <button className='btn btn-primary flex-grow-1 me-2' onClick={() => addToCart(item)}>Add to cart</button>
+                <button className='btn btn-outline-success flex-grow-1' onClick={() => {
+                  addToCart(item);
+                  window.location.href = '/cart';
+                }}>Buy Now</button>
+              </div>
             </div>
           ))}
         </div>
+        
+        {/* Newspaper Section */}
+        <div id="newspaper-section" className="mt-5">
+          <NewspaperSection addToCart={addToCart} />
+        </div>
+        
+        {/* Featured Collections Section */}
+        <div className="mt-5 mb-5">
+          <h2 className="text-center mb-4">Featured Collections</h2>
+          <div className="row">
+            <div className="col-md-4 mb-3">
+              <div className="card">
+                <div className="card-body text-center">
+                  <h5 className="card-title">Historical Events</h5>
+                  <p className="card-text">Newspapers covering major historical events from the 20th century.</p>
+                  <a href="#" className="btn btn-outline-primary">View Collection</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <div className="card">
+                <div className="card-body text-center">
+                  <h5 className="card-title">Sports Memorabilia</h5>
+                  <p className="card-text">Newspapers featuring iconic sports moments and championships.</p>
+                  <a href="#" className="btn btn-outline-primary">View Collection</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-3">
+              <div className="card">
+                <div className="card-body text-center">
+                  <h5 className="card-title">Celebrity News</h5>
+                  <p className="card-text">Vintage newspapers with celebrity interviews and entertainment news.</p>
+                  <a href="#" className="btn btn-outline-primary">View Collection</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
       <div className='col-md-1'></div>
     </div>
