@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import QuickSearch from "./QuickSearch";
+import "./Header.css";
 
 const Header = () => {
   const { isUserLogin } = useContext(AuthContext);
@@ -12,17 +14,22 @@ const Header = () => {
           to="/"
           className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
         >
-          <svg className="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
+          <div className="logo">
+            <span className="logo-text">Old Newspaper</span>
+          </div>
         </Link>
 
         <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><Link to="/" className="nav-link px-2 link-secondary">Homes</Link></li>
-          <li><Link to="/about" className="nav-link px-2 link-dark">Featuress</Link></li>
-          <li><Link to="/pricing" className="nav-link px-2 link-dark">Pricings</Link></li>
-          <li><Link to="/cart" className="nav-link px-2 link-dark">Carts</Link></li>
-          <li><Link to="/" className="nav-link px-2 link-dark">Abouts</Link></li>
-          <li><Link to="/" className="nav-link px-2 link-dark">Products</Link></li>
+          <li><Link to="/" className="nav-link px-2 link-secondary">Home</Link></li>
+          <li><Link to="/browse" className="nav-link px-2 link-dark">Browse</Link></li>
+          <li><Link to="/offers" className="nav-link px-2 link-dark">Offers</Link></li>
+          <li><Link to="/cart" className="nav-link px-2 link-dark">Cart</Link></li>
+          <li><Link to="/about" className="nav-link px-2 link-dark">About</Link></li>
         </ul>
+        
+        <div className="search-container">
+          <QuickSearch />
+        </div>
 
         <div className="col-md-4 text-end">
           {isUserLogin ? (

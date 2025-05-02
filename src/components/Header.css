@@ -1,0 +1,59 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1d3557;
+  position: relative;
+}
+
+.logo-text:after {
+  content: 'Sell App';
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #e63946;
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #e63946 !important;
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #e63946;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after {
+  width: 70%;
+}
+
+.search-container {
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    order: 3;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}

@@ -27,6 +27,9 @@ import EditProduct from './components/admin/EditProduct';
 import { ToastContainer, toast } from 'react-toastify';
 import Orders from './components/admin/Orders';
 import Footer from './components/Footer';
+import FloatingCart from './components/FloatingCart';
+import NewspaperBrowse from './components/NewspaperBrowse';
+import SpecialOffers from './components/SpecialOffers';
 import { AuthContext } from './context/AuthContext';
 function App() {
 	const notify = () => toast("Wow so easy!");
@@ -110,6 +113,8 @@ function App() {
       <Routes>
 	
         <Route path="/" element={<MainHome addToCart={addToCart} />} />
+        <Route path="/browse" element={<NewspaperBrowse addToCart={addToCart} />} />
+        <Route path="/offers" element={<SpecialOffers addToCart={addToCart} />} />
         <Route path="/cart" element={<Cart cartItems1={cartItems} removeFromCart={removeFromCart} 
                     updateQuantity={updateCartItem} clearCart={clearCart} />} />
 					<Route path="/payment-success/:orderId" element={<PaymentSuccessPage />} />

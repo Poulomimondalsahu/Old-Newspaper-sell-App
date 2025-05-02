@@ -6,6 +6,8 @@ import Menu from './Menu';
 import BestSellers from './BestSellers';
 import NewspaperCategories from './NewspaperCategories';
 import FeaturedNewspaper from './FeaturedNewspaper';
+import SpecialOffers from './SpecialOffers';
+import NewspaperBrowse from './NewspaperBrowse';
 import {deleteItem, getItems} from "./services/ProductService"
 
 const Home = ({ addToCart })  => {
@@ -109,6 +111,12 @@ const fetchItems = async () => {
       
       {/* Featured Newspaper Section */}
       <FeaturedNewspaper addToCart={addToCart} />
+      
+      {/* Special Offers Section */}
+      <SpecialOffers addToCart={addToCart} />
+      
+      {/* Browse Newspapers with Filters */}
+      <NewspaperBrowse addToCart={addToCart} />
       
       {/* Original Products Section */}
       <div className='row mt-5'>

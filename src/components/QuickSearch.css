@@ -1,0 +1,90 @@
+.quick-search {
+  position: relative;
+  width: 300px;
+}
+
+.quick-search form {
+  display: flex;
+  align-items: center;
+}
+
+.quick-search input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.quick-search.expanded input {
+  border-color: #1d3557;
+  box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.1);
+}
+
+.quick-search button {
+  padding: 0.75rem 1rem;
+  background-color: #1d3557;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quick-search button:hover {
+  background-color: #152a45;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 10;
+  margin-top: 5px;
+}
+
+.suggestion-section {
+  margin-bottom: 1rem;
+}
+
+.suggestion-section:last-child {
+  margin-bottom: 0;
+}
+
+.suggestion-section h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1d3557;
+  margin-bottom: 0.5rem;
+}
+
+.suggestion-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestion-section li {
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.suggestion-section li:hover {
+  color: #e63946;
+}
+
+@media (max-width: 768px) {
+  .quick-search {
+    width: 100%;
+  }
+}
