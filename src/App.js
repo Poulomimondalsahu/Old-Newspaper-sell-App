@@ -7,6 +7,7 @@ import {
 	Routes,Link
 } from "react-router-dom";
 import "./App.css";
+import "./components/custom.css";
 import Create from "./components/admin/CreateProduct";
 import Edit from "./components/admin/EditProduct";
 import EditCategory from "./components/admin/EditCategory";

@@ -13,6 +13,7 @@ import FeaturesSection from './FeaturesSection';
 import PricingPlans from './PricingPlans';
 import TestimonialsSection from './TestimonialsSection';
 import NewspaperFilters from './NewspaperFilters';
+import './custom.css';
 
 const Home = ({ addToCart })  => {
   const [productsBySell, setProductsBySell] = useState([]);
@@ -139,109 +140,249 @@ const Home = ({ addToCart })  => {
         <div id="offers-section" className="mb-5">
           <OffersSection />
         </div>
-
-        {/* Best Sellers Section */}
-        <h2 className='mb-4 mt-5 text-center'>Best Sellers</h2>
         
-        <div className="row mb-4">
-          <div className="col-lg-3">
-            {/* Filter Component */}
-            <NewspaperFilters 
-              activeFilter={activeFilter}
-              setActiveFilter={setActiveFilter}
-              priceRange={priceRange}
-              setPriceRange={setPriceRange}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-            />
+        {/* Special Deals Banner */}
+        <div className="special-deals-banner p-4 bg-primary text-white rounded mb-5">
+          <div className="row align-items-center">
+            <div className="col-md-8">
+              <h3><i className="bi bi-lightning-charge-fill me-2"></i>Special Deals of the Week</h3>
+              <p className="mb-0">Explore our curated collection of rare newspapers with exclusive discounts!</p>
+            </div>
+            <div className="col-md-4 text-md-end mt-3 mt-md-0">
+              <button className="btn btn-light">View Special Deals</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Best Sellers Section - Flipkart Style */}
+        <div className="best-sellers-section mb-5">
+          <div className="section-header bg-light p-3 rounded mb-4">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <h2 className='mb-0'>Best Sellers</h2>
+              </div>
+              <div className="col-md-6 text-md-end">
+                <div className="d-flex justify-content-md-end align-items-center">
+                  <span className="me-3">View as:</span>
+                  <div className="btn-group" role="group">
+                    <button type="button" className="btn btn-outline-primary active">
+                      <i className="bi bi-grid-3x3-gap-fill"></i>
+                    </button>
+                    <button type="button" className="btn btn-outline-primary">
+                      <i className="bi bi-list"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div className="col-lg-9">
-            {isLoading ? (
-              <div className="text-center p-5">
-                <div className="spinner-border text-primary" role="status">
-                  <span className="visually-hidden">Loading...</span>
+          <div className="row mb-4">
+            <div className="col-lg-3">
+              {/* Filter Component */}
+              <NewspaperFilters 
+                activeFilter={activeFilter}
+                setActiveFilter={setActiveFilter}
+                priceRange={priceRange}
+                setPriceRange={setPriceRange}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+              />
+            </div>
+            
+            <div className="col-lg-9">
+              {/* Flipkart-style sorting bar */}
+              <div className="sort-bar bg-light p-3 rounded mb-3 d-flex justify-content-between align-items-center">
+                <div>
+                  <span className="fw-bold me-2">Sort By:</span>
+                  <div className="btn-group" role="group">
+                    <button type="button" className="btn btn-sm btn-outline-primary active">Popularity</button>
+                    <button type="button" className="btn btn-sm btn-outline-primary">Price Low to High</button>
+                    <button type="button" className="btn btn-sm btn-outline-primary">Price High to Low</button>
+                    <button type="button" className="btn btn-sm btn-outline-primary">Newest First</button>
+                  </div>
                 </div>
-                <p className="mt-3">Loading products...</p>
+                <div>
+                  <span className="text-muted">{filteredProducts.length} items</span>
+                </div>
               </div>
-            ) : filteredProducts.length === 0 ? (
-              <div className="alert alert-info text-center p-5">
-                <h4>No products match your filters</h4>
-                <p>Try adjusting your filter criteria or search query</p>
-              </div>
-            ) : (
-              <div className='row'>
-                {filteredProducts.map((item, i) => (
-                  <div key={i} className='col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4'>
-                    <div className="card h-100 shadow-sm position-relative">
-                      {item.discount > 0 && (
-                        <div className="position-absolute top-0 end-0 p-2">
-                          <span className="badge bg-danger">{item.discount}% OFF</span>
-                        </div>
-                      )}
-                      <div className='product-img' style={{ height: '250px' }}>
-                        <img
-                          src={item.imageUrl || `http://localhost:8185/images/${item.filename}`}
-                          alt={item.itemName}
-                          className='mb-3'
-                          onError={(e) => {
-                            // If the image fails to load, try the alternative source or use a placeholder
-                            if (e.target.src.includes(item.filename)) {
-                              e.target.src = item.imageUrl || 'https://via.placeholder.com/400x300?text=Newspaper+Image';
-                            } else {
-                              e.target.src = 'https://via.placeholder.com/400x300?text=Newspaper+Image';
-                            }
-                          }}
-                          style={{
-                            objectFit: 'contain',
-                            height: '100%',
-                            width: '100%',
-                            display: 'block',
-                            marginLeft: 'auto',
-                            marginRight: 'auto'
-                          }}
-                        />
-                      </div>
-                      <div className='card-body d-flex flex-column'>
-                        <h5 className='card-title'>{item.itemName}</h5>
-                        {item.category && (
-                          <div className="mb-2">
-                            <span className="badge bg-secondary me-1">{item.category}</span>
-                            {item.decade && <span className="badge bg-info text-dark">{item.decade}</span>}
+              
+              {isLoading ? (
+                <div className="text-center p-5">
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                  <p className="mt-3">Loading products...</p>
+                </div>
+              ) : filteredProducts.length === 0 ? (
+                <div className="alert alert-info text-center p-5">
+                  <h4>No products match your filters</h4>
+                  <p>Try adjusting your filter criteria or search query</p>
+                </div>
+              ) : (
+                <div className='row'>
+                  {filteredProducts.map((item, i) => (
+                    <div key={i} className='col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4'>
+                      <div className="card h-100 shadow-sm position-relative product-card"
+                        style={{
+                          transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                          cursor: 'pointer'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = 'translateY(-5px)';
+                          e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.boxShadow = '';
+                        }}
+                      >
+                        {/* Flipkart-style badges */}
+                        {item.discount > 0 && (
+                          <div className="position-absolute top-0 end-0 p-2">
+                            <span className="badge bg-danger">{item.discount}% OFF</span>
                           </div>
                         )}
-                        <p className="card-text small">{item.description}</p>
-                        <div className='mt-auto'>
-                          <div className="d-flex justify-content-between align-items-center mb-3">
-                            {item.discount > 0 ? (
-                              <div>
-                                <span className="h5 mb-0 text-danger">
-                                  ₹{(item.itemPrice - (item.itemPrice * item.discount / 100)).toFixed(0)}
-                                </span>
-                                <span className="text-muted text-decoration-line-through ms-2">₹{item.itemPrice}</span>
-                              </div>
-                            ) : (
-                              <h5 className='mb-0'>
-                                ₹ <span className='text-danger'>{item.itemPrice}</span>
-                              </h5>
-                            )}
+                        {item.featured && (
+                          <div className="position-absolute top-0 start-0 p-2">
+                            <span className="badge bg-primary">Featured</span>
                           </div>
-                          <div className="d-flex justify-content-between mt-2">
-                            <button className='btn btn-primary flex-grow-1 me-2' onClick={() => addToCart(item)}>
-                              <i className="bi bi-cart-plus me-2"></i>Add to cart
+                        )}
+                        
+                        <div className='product-img' style={{ height: '250px', overflow: 'hidden', position: 'relative' }}>
+                          {/* Quick view overlay */}
+                          <div className="quick-view-overlay position-absolute w-100 h-100 d-flex justify-content-center align-items-center"
+                            style={{
+                              top: 0,
+                              left: 0,
+                              background: 'rgba(0,0,0,0.5)',
+                              opacity: 0,
+                              transition: 'opacity 0.3s ease',
+                              zIndex: 1
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
+                            onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
+                          >
+                            <button className="btn btn-light btn-sm me-2">
+                              <i className="bi bi-eye"></i> Quick View
                             </button>
-                            <button className='btn btn-outline-success flex-grow-1' onClick={() => {
-                              addToCart(item);
-                              window.location.href = '/cart';
-                            }}>Buy Now</button>
+                            <button className="btn btn-light btn-sm">
+                              <i className="bi bi-heart"></i> Wishlist
+                            </button>
+                          </div>
+                          
+                          <img
+                            src={item.imageUrl || `http://localhost:8185/images/${item.filename}`}
+                            alt={item.itemName}
+                            className='mb-3'
+                            onError={(e) => {
+                              // If the image fails to load, try the alternative source or use a placeholder
+                              if (e.target.src.includes(item.filename)) {
+                                e.target.src = item.imageUrl || 'https://via.placeholder.com/400x300?text=Newspaper+Image';
+                              } else {
+                                e.target.src = 'https://via.placeholder.com/400x300?text=Newspaper+Image';
+                              }
+                            }}
+                            style={{
+                              objectFit: 'contain',
+                              height: '100%',
+                              width: '100%',
+                              display: 'block',
+                              marginLeft: 'auto',
+                              marginRight: 'auto',
+                              transition: 'transform 0.5s ease',
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                          />
+                        </div>
+                        
+                        <div className='card-body d-flex flex-column'>
+                          <h5 className='card-title'>{item.itemName}</h5>
+                          
+                          {/* Flipkart-style ratings */}
+                          <div className="ratings mb-2">
+                            <span className="badge bg-success me-2">
+                              4.5 <i className="bi bi-star-fill"></i>
+                            </span>
+                            <small className="text-muted">(24 Reviews)</small>
+                          </div>
+                          
+                          {item.category && (
+                            <div className="mb-2">
+                              <span className="badge bg-secondary me-1">{item.category}</span>
+                              {item.decade && <span className="badge bg-info text-dark">{item.decade}</span>}
+                            </div>
+                          )}
+                          
+                          <p className="card-text small">{item.description}</p>
+                          
+                          <div className='mt-auto'>
+                            <div className="d-flex justify-content-between align-items-center mb-3">
+                              {item.discount > 0 ? (
+                                <div>
+                                  <span className="h5 mb-0 text-danger">
+                                    ₹{(item.itemPrice - (item.itemPrice * item.discount / 100)).toFixed(0)}
+                                  </span>
+                                  <span className="text-muted text-decoration-line-through ms-2">₹{item.itemPrice}</span>
+                                  <div className="text-success small mt-1">
+                                    <i className="bi bi-tag-fill"></i> {item.discount}% off
+                                  </div>
+                                </div>
+                              ) : (
+                                <h5 className='mb-0'>
+                                  ₹ <span className='text-danger'>{item.itemPrice}</span>
+                                </h5>
+                              )}
+                              
+                              {/* Flipkart-style availability badge */}
+                              <span className="badge bg-success">
+                                <i className="bi bi-check-circle-fill me-1"></i>In Stock
+                              </span>
+                            </div>
+                            
+                            <div className="d-flex justify-content-between mt-2">
+                              <button className='btn btn-primary flex-grow-1 me-2' onClick={() => addToCart(item)}>
+                                <i className="bi bi-cart-plus me-2"></i>Add to cart
+                              </button>
+                              <button className='btn btn-outline-success flex-grow-1' onClick={() => {
+                                addToCart(item);
+                                window.location.href = '/cart';
+                              }}>
+                                <i className="bi bi-lightning-fill me-1"></i>Buy Now
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
+                  ))}
+                </div>
+              )}
+              
+              {/* Flipkart-style pagination */}
+              {filteredProducts.length > 0 && (
+                <div className="pagination-container d-flex justify-content-center mt-4">
+                  <nav aria-label="Page navigation">
+                    <ul className="pagination">
+                      <li className="page-item disabled">
+                        <a className="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li className="page-item active"><a className="page-link" href="#">1</a></li>
+                      <li className="page-item"><a className="page-link" href="#">2</a></li>
+                      <li className="page-item"><a className="page-link" href="#">3</a></li>
+                      <li className="page-item">
+                        <a className="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              )}
+            </div>
           </div>
         </div>
         
