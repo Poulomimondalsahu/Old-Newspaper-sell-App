@@ -234,7 +234,7 @@ const Home = ({ addToCart })  => {
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.transform = 'translateY(0)';
-                          e.currentTarget.style.boxShadow = '';
+                          e.currentTarget.style.boxShadow = 'none';
                         }}
                       >
                         {/* Flipkart-style badges */}
@@ -260,8 +260,8 @@ const Home = ({ addToCart })  => {
                               transition: 'opacity 0.3s ease',
                               zIndex: 1
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
-                            onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
+                            onMouseEnter={(e) => {e.currentTarget.style.opacity = '1'}}
+                            onMouseLeave={(e) => {e.currentTarget.style.opacity = '0'}}
                           >
                             <button className="btn btn-light btn-sm me-2">
                               <i className="bi bi-eye"></i> Quick View
@@ -292,8 +292,8 @@ const Home = ({ addToCart })  => {
                               marginRight: 'auto',
                               transition: 'transform 0.5s ease',
                             }}
-                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                            onMouseEnter={(e) => {e.currentTarget.style.transform = 'scale(1.05)'}}
+                            onMouseLeave={(e) => {e.currentTarget.style.transform = 'scale(1)'}}
                           />
                         </div>
                         
