@@ -143,15 +143,15 @@ const NewspaperSection = ({ addToCart }) => {
                     )}
                     <div className="card-img-container" style={{ height: '200px', overflow: 'hidden' }}>
                       <img 
-                        src={newspaper.filename ? 
-                          `/${newspaper.filename}` : 
-                          newspaper.imageUrl} 
+                        src={newspaper.imageUrl || (newspaper.filename ? `http://localhost:8185/images/${newspaper.filename}` : null)} 
                         className="card-img-top" 
                         alt={newspaper.itemName}
                         onError={(e) => {
-                          // If the local image fails to load, fall back to the remote URL
-                          if (e.target.src !== newspaper.imageUrl) {
-                            e.target.src = newspaper.imageUrl;
+                          // If the image fails to load, try the alternative source or use a placeholder
+                          if (e.target.src.includes(newspaper.filename)) {
+                            e.target.src = newspaper.imageUrl || 'https://via.placeholder.com/400x300?text=Newspaper+Image';
+                          } else if (e.target.src !== 'https://via.placeholder.com/400x300?text=Newspaper+Image') {
+                            e.target.src = 'https://via.placeholder.com/400x300?text=Newspaper+Image';
                           }
                         }}
                         style={{

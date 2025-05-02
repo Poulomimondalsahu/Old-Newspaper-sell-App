@@ -12,11 +12,16 @@ import ImageMapping from './ImageMapping';
 import FeaturesSection from './FeaturesSection';
 import PricingPlans from './PricingPlans';
 import TestimonialsSection from './TestimonialsSection';
+import NewspaperFilters from './NewspaperFilters';
 
 const Home = ({ addToCart })  => {
   const [productsBySell, setProductsBySell] = useState([]);
   const [productsByArrival, setProductsByArrival] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState({ category: 'All', decade: 'All Decades' });
+  const [priceRange, setPriceRange] = useState(1000);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
   //const { addToCart } = useCart();
   
   //const [product, setProduct] = useState([]);
@@ -41,12 +46,14 @@ const Home = ({ addToCart })  => {
     try {
       const response = await getItems();
       setProductsBySell(response.data);
+      setFilteredProducts(response.data);
     } catch (error) {
       console.error("Error fetching Items:", error);
     } finally {
       setIsLoading(false);
     }
   };
+  
   const loadProductsByArrival = async () => {
     try {
       const response = await getItems();
@@ -55,14 +62,50 @@ const Home = ({ addToCart })  => {
       console.error("Error fetching Items:", error);
     }
   };
-const fetchItems = async () => {
-        try {
-          const response = await getItems();
-          setProductsByArrival(response.data);
-        } catch (error) {
-          console.error("Error fetching Items:", error);
-        }
-      };
+  
+  const fetchItems = async () => {
+    try {
+      const response = await getItems();
+      setProductsByArrival(response.data);
+    } catch (error) {
+      console.error("Error fetching Items:", error);
+    }
+  };
+  
+  // Apply filters to products
+  useEffect(() => {
+    if (productsBySell.length > 0) {
+      let result = [...productsBySell];
+      
+      // Filter by search query
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        result = result.filter(product => 
+          product.itemName.toLowerCase().includes(query) || 
+          (product.description && product.description.toLowerCase().includes(query))
+        );
+      }
+      
+      // Filter by category (if implemented in your data)
+      if (activeFilter.category !== 'All' && result.some(item => item.category)) {
+        result = result.filter(product => product.category === activeFilter.category);
+      }
+      
+      // Filter by decade (if implemented in your data)
+      if (activeFilter.decade !== 'All Decades' && result.some(item => item.decade)) {
+        result = result.filter(product => product.decade === activeFilter.decade);
+      }
+      
+      // Filter by price
+      result = result.filter(product => {
+        const price = product.itemPrice || product.price;
+        return price <= priceRange;
+      });
+      
+      setFilteredProducts(result);
+    }
+  }, [productsBySell, activeFilter, priceRange, searchQuery]);
+  
   useEffect(() => {
     //var arr =  JSON.parse(localStorage.getItem('user')) ;
     //console.log(arr);
@@ -99,59 +142,108 @@ const fetchItems = async () => {
 
         {/* Best Sellers Section */}
         <h2 className='mb-4 mt-5 text-center'>Best Sellers</h2>
-        {isLoading ? (
-          <div className="text-center p-5">
-            <div className="spinner-border text-primary" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
-            <p className="mt-3">Loading products...</p>
+        
+        <div className="row mb-4">
+          <div className="col-lg-3">
+            {/* Filter Component */}
+            <NewspaperFilters 
+              activeFilter={activeFilter}
+              setActiveFilter={setActiveFilter}
+              priceRange={priceRange}
+              setPriceRange={setPriceRange}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
           </div>
-        ) : (
-          <div className='row'>
-            {productsBySell.map((item, i) => (
-              <div key={i} className='col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4'>
-                <div className="card h-100 shadow-sm">
-                  <div className='product-img' style={{ height: '250px' }}>
-                    <img
-                      src={`/${item.filename}`}
-                      alt={item.itemName}
-                      className='mb-3'
-                      onError={(e) => {
-                        // If the local image fails to load, use a placeholder
-                        e.target.src = 'https://via.placeholder.com/400x300?text=Newspaper+Image';
-                      }}
-                      style={{
-                        objectFit: 'contain',
-                        height: '100%',
-                        width: '100%',
-                        display: 'block',
-                        marginLeft: 'auto',
-                        marginRight: 'auto'
-                      }}
-                    />
-                  </div>
-                  <div className='card-body d-flex flex-column'>
-                    <h5 className='card-title'>{item.itemName}</h5>
-                    <div className='mt-auto'>
-                      <h5 className='text-center mb-3'>
-                        ₹ <span className='text-danger'>{item.itemPrice}</span>
-                      </h5>
-                      <div className="d-flex justify-content-between mt-2">
-                        <button className='btn btn-primary flex-grow-1 me-2' onClick={() => addToCart(item)}>
-                          <i className="bi bi-cart-plus me-2"></i>Add to cart
-                        </button>
-                        <button className='btn btn-outline-success flex-grow-1' onClick={() => {
-                          addToCart(item);
-                          window.location.href = '/cart';
-                        }}>Buy Now</button>
+          
+          <div className="col-lg-9">
+            {isLoading ? (
+              <div className="text-center p-5">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <p className="mt-3">Loading products...</p>
+              </div>
+            ) : filteredProducts.length === 0 ? (
+              <div className="alert alert-info text-center p-5">
+                <h4>No products match your filters</h4>
+                <p>Try adjusting your filter criteria or search query</p>
+              </div>
+            ) : (
+              <div className='row'>
+                {filteredProducts.map((item, i) => (
+                  <div key={i} className='col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4'>
+                    <div className="card h-100 shadow-sm position-relative">
+                      {item.discount > 0 && (
+                        <div className="position-absolute top-0 end-0 p-2">
+                          <span className="badge bg-danger">{item.discount}% OFF</span>
+                        </div>
+                      )}
+                      <div className='product-img' style={{ height: '250px' }}>
+                        <img
+                          src={item.imageUrl || `http://localhost:8185/images/${item.filename}`}
+                          alt={item.itemName}
+                          className='mb-3'
+                          onError={(e) => {
+                            // If the image fails to load, try the alternative source or use a placeholder
+                            if (e.target.src.includes(item.filename)) {
+                              e.target.src = item.imageUrl || 'https://via.placeholder.com/400x300?text=Newspaper+Image';
+                            } else {
+                              e.target.src = 'https://via.placeholder.com/400x300?text=Newspaper+Image';
+                            }
+                          }}
+                          style={{
+                            objectFit: 'contain',
+                            height: '100%',
+                            width: '100%',
+                            display: 'block',
+                            marginLeft: 'auto',
+                            marginRight: 'auto'
+                          }}
+                        />
+                      </div>
+                      <div className='card-body d-flex flex-column'>
+                        <h5 className='card-title'>{item.itemName}</h5>
+                        {item.category && (
+                          <div className="mb-2">
+                            <span className="badge bg-secondary me-1">{item.category}</span>
+                            {item.decade && <span className="badge bg-info text-dark">{item.decade}</span>}
+                          </div>
+                        )}
+                        <p className="card-text small">{item.description}</p>
+                        <div className='mt-auto'>
+                          <div className="d-flex justify-content-between align-items-center mb-3">
+                            {item.discount > 0 ? (
+                              <div>
+                                <span className="h5 mb-0 text-danger">
+                                  ₹{(item.itemPrice - (item.itemPrice * item.discount / 100)).toFixed(0)}
+                                </span>
+                                <span className="text-muted text-decoration-line-through ms-2">₹{item.itemPrice}</span>
+                              </div>
+                            ) : (
+                              <h5 className='mb-0'>
+                                ₹ <span className='text-danger'>{item.itemPrice}</span>
+                              </h5>
+                            )}
+                          </div>
+                          <div className="d-flex justify-content-between mt-2">
+                            <button className='btn btn-primary flex-grow-1 me-2' onClick={() => addToCart(item)}>
+                              <i className="bi bi-cart-plus me-2"></i>Add to cart
+                            </button>
+                            <button className='btn btn-outline-success flex-grow-1' onClick={() => {
+                              addToCart(item);
+                              window.location.href = '/cart';
+                            }}>Buy Now</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
-        )}
+        </div>
         
         {/* Newspaper Section */}
         <div id="newspaper-section" className="mt-5">

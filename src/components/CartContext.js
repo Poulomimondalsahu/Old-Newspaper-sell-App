@@ -7,19 +7,30 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     setCart((prevCart) => {
-      const existingProduct = prevCart.find(item => item.id === product.id);
+      // Ensure product has an id and quantity
+      const productToAdd = {
+        ...product,
+        id: product.id || product.itemId,
+        quantity: product.quantity || 1
+      };
+      
+      const existingProduct = prevCart.find(item => (item.id === productToAdd.id || item.itemId === productToAdd.id));
+      
       if (existingProduct) {
         // Update the quantity if the product already exists
         return prevCart.map(item =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + product.quantity }
+          (item.id === productToAdd.id || item.itemId === productToAdd.id)
+            ? { ...item, quantity: item.quantity + productToAdd.quantity }
             : item
         );
       } else {
         // Add the new product
-        return [...prevCart, { ...product, quantity: product.quantity }];
+        return [...prevCart, productToAdd];
       }
     });
+    
+    // Show a confirmation message
+    alert(`${product.itemName} added to cart!`);
   };
 
   const updateQuantity = (id, quantity) => {

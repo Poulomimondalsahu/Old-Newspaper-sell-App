@@ -42,6 +42,7 @@ const ImageGuide = () => {
                   <li>Set up your backend server to serve images from this location</li>
                   <li>Or modify the code to point to where your images are actually stored</li>
                 </ul>
+                <p className="mt-3"><strong>Image Not Showing?</strong> We've updated the code to use fallback images from Unsplash if your local images aren't available. This ensures your website always displays something visually appealing.</p>
               </div>
             </div>
           </div>

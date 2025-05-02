@@ -28,6 +28,15 @@ const OffersSection = () => {
       expiry: 'Ongoing',
       bgColor: 'bg-success',
       image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 4,
+      title: 'HOLIDAY SPECIAL',
+      description: 'Special holiday collection with 25% discount',
+      code: 'HOLIDAY25',
+      expiry: 'Limited time',
+      bgColor: 'bg-warning',
+      image: 'https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
     }
   ];
 
