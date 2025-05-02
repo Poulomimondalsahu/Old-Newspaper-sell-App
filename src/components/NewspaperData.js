@@ -9,7 +9,14 @@ export const newspapers = [
     filename: 'times1990.jpg',
     imageUrl: 'https://images.unsplash.com/photo-1566378246598-5b11a0d486cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 1,
-    category: 'Vintage'
+    category: 'Vintage',
+    decade: '1990s',
+    publisher: 'The Times',
+    condition: 'Good',
+    inStock: true,
+    featured: true,
+    discount: 0,
+    tags: ['UK', 'Politics', 'Cold War End']
   },
   {
     id: 'np2',
@@ -20,7 +27,14 @@ export const newspapers = [
     filename: 'nyherald1985.jpg',
     imageUrl: 'https://images.unsplash.com/photo-1585241936939-be4099591252?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 1,
-    category: 'Vintage'
+    category: 'Vintage',
+    decade: '1980s',
+    publisher: 'New York Herald',
+    condition: 'Excellent',
+    inStock: true,
+    featured: true,
+    discount: 10,
+    tags: ['USA', 'Reagan Era', 'Entertainment']
   },
   {
     id: 'np3',
@@ -31,7 +45,14 @@ export const newspapers = [
     filename: 'guardian1970.jpg',
     imageUrl: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 1,
-    category: 'Bundle'
+    category: 'Bundle',
+    decade: '1970s',
+    publisher: 'The Guardian',
+    condition: 'Fair',
+    inStock: true,
+    featured: false,
+    discount: 15,
+    tags: ['UK', 'Politics', 'Oil Crisis']
   },
   {
     id: 'np4',
@@ -42,7 +63,14 @@ export const newspapers = [
     filename: 'wapost1970.jpg',
     imageUrl: 'https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 1,
-    category: 'Historical'
+    category: 'Historical',
+    decade: '1970s',
+    publisher: 'Washington Post',
+    condition: 'Very Good',
+    inStock: true,
+    featured: true,
+    discount: 0,
+    tags: ['USA', 'Politics', 'Nixon', 'Watergate']
   },
   {
     id: 'np5',
@@ -53,7 +81,14 @@ export const newspapers = [
     filename: 'ft1980.jpg',
     imageUrl: 'https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 1,
-    category: 'Business'
+    category: 'Business',
+    decade: '1980s',
+    publisher: 'Financial Times',
+    condition: 'Good',
+    inStock: true,
+    featured: false,
+    discount: 5,
+    tags: ['UK', 'Business', 'Economy', 'Thatcher Era']
   },
   {
     id: 'np6',
@@ -64,6 +99,67 @@ export const newspapers = [
     filename: 'tribune1960.jpg',
     imageUrl: 'https://images.unsplash.com/photo-1584552532991-9c0c0a2a8d2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
     quantity: 1,
-    category: 'Vintage'
+    category: 'Vintage',
+    decade: '1960s',
+    publisher: 'Chicago Tribune',
+    condition: 'Fair',
+    inStock: true,
+    featured: false,
+    discount: 0,
+    tags: ['USA', 'Civil Rights', 'Kennedy']
+  },
+  {
+    id: 'np7',
+    itemId: 'np7',
+    itemName: 'Sports Illustrated 1980s Olympics',
+    itemPrice: 349,
+    description: 'Collection of Sports Illustrated issues covering the Olympic Games of the 1980s.',
+    filename: 'si1980.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1569252938915-5aa0fb5584ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+    quantity: 1,
+    category: 'Sports',
+    decade: '1980s',
+    publisher: 'Sports Illustrated',
+    condition: 'Good',
+    inStock: true,
+    featured: true,
+    discount: 20,
+    tags: ['USA', 'Olympics', 'Sports History']
+  },
+  {
+    id: 'np8',
+    itemId: 'np8',
+    itemName: 'The New York Times Moon Landing',
+    itemPrice: 799,
+    description: 'Rare original copy of The New York Times covering the historic Apollo 11 moon landing in 1969.',
+    filename: 'nyt1969.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1541185934-01b600ea069c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+    quantity: 1,
+    category: 'Historical',
+    decade: '1960s',
+    publisher: 'The New York Times',
+    condition: 'Very Good',
+    inStock: true,
+    featured: true,
+    discount: 0,
+    tags: ['USA', 'Space', 'NASA', 'Apollo 11']
+  },
+  {
+    id: 'np9',
+    itemId: 'np9',
+    itemName: 'The Times Royal Wedding 1981',
+    itemPrice: 299,
+    description: 'The Times newspaper covering the Royal Wedding of Prince Charles and Lady Diana in 1981.',
+    filename: 'times1981.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1617131011519-33a8f15fa056?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+    quantity: 1,
+    category: 'Historical',
+    decade: '1980s',
+    publisher: 'The Times',
+    condition: 'Excellent',
+    inStock: true,
+    featured: false,
+    discount: 10,
+    tags: ['UK', 'Royal Family', 'Princess Diana']
   }
 ];
