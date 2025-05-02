@@ -136,7 +136,7 @@ const SpecialOffers = ({ addToCart }) => {
           )}
         </div>
         <div className="newsletter-image">
-          <img src="./image/im15.jpeg" alt="Newsletter" />
+          <img src={newsletterImage} alt="Newsletter" />
         </div>
       </div>
       
