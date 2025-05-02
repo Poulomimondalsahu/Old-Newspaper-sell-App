@@ -8,6 +8,14 @@ import NewspaperCategories from './NewspaperCategories';
 import FeaturedNewspaper from './FeaturedNewspaper';
 import SpecialOffers from './SpecialOffers';
 import NewspaperBrowse from './NewspaperBrowse';
+import Testimonials from './Testimonials';
+import NewspaperGallery from './NewspaperGallery';
+import SubscriptionPlans from './SubscriptionPlans';
+import NewspaperTimeline from './NewspaperTimeline';
+import Testimonials from './Testimonials';
+import NewspaperGallery from './NewspaperGallery';
+import SubscriptionPlans from './SubscriptionPlans';
+import NewspaperTimeline from './NewspaperTimeline';
 import {deleteItem, getItems} from "./services/ProductService"
 
 const Home = ({ addToCart })  => {
@@ -71,7 +79,7 @@ const fetchItems = async () => {
       
       {/* Hero Banner */}
       <div className="hero-banner" style={{
-        backgroundImage: 'url(https://images.unsplash.com/photo-1582661702593-149b3f4f2927?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)',
+        backgroundImage: 'url(/image/im16.jpeg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '500px',
@@ -106,6 +114,12 @@ const fetchItems = async () => {
       {/* Newspaper Best Sellers Section */}
       <BestSellers addToCart={addToCart} />
       
+      {/* Historic Newspaper Gallery */}
+      <NewspaperGallery />
+      
+      {/* Newspaper Timeline */}
+      <NewspaperTimeline />
+      
       {/* Newspaper Categories Section */}
       <NewspaperCategories />
       
@@ -114,6 +128,12 @@ const fetchItems = async () => {
       
       {/* Special Offers Section */}
       <SpecialOffers addToCart={addToCart} />
+      
+      {/* Historic Newspaper Gallery */}
+      <NewspaperGallery />
+      
+      {/* Newspaper Timeline */}
+      <NewspaperTimeline />
       
       {/* Browse Newspapers with Filters */}
       <NewspaperBrowse addToCart={addToCart} />
@@ -155,96 +175,15 @@ const fetchItems = async () => {
         <div className='col-md-1'></div>
       </div>
       
+      {/* Subscription Plans Section */}
+      <SubscriptionPlans />
+      
       {/* Testimonials Section */}
-      <div className="testimonials-section" style={{
-        backgroundColor: '#f8f9fa',
-        padding: '4rem 0',
-        margin: '4rem 0'
-      }}>
-        <div className="container">
-          <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>What Our Customers Say</h2>
-          <div className="row">
-            <div className="col-md-4 mb-4">
-              <div className="card h-100 p-4">
-                <div className="d-flex align-items-center mb-3">
-                  <div style={{
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '50%',
-                    backgroundColor: '#e63946',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    marginRight: '1rem'
-                  }}>JD</div>
-                  <div>
-                    <h5 className="mb-0">John Doe</h5>
-                    <small className="text-muted">Collector</small>
-                  </div>
-                </div>
-                <p className="card-text">"I've been collecting newspapers for over 20 years, and this is by far the best place to find rare editions. The quality and authenticity are unmatched!"</p>
-                <div className="text-warning">
-                  ★★★★★
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 mb-4">
-              <div className="card h-100 p-4">
-                <div className="d-flex align-items-center mb-3">
-                  <div style={{
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '50%',
-                    backgroundColor: '#457b9d',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    marginRight: '1rem'
-                  }}>MS</div>
-                  <div>
-                    <h5 className="mb-0">Mary Smith</h5>
-                    <small className="text-muted">Historian</small>
-                  </div>
-                </div>
-                <p className="card-text">"As a historian, I rely on authentic sources for my research. The newspapers I've purchased here have been invaluable for my work on 20th century events."</p>
-                <div className="text-warning">
-                  ★★★★★
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 mb-4">
-              <div className="card h-100 p-4">
-                <div className="d-flex align-items-center mb-3">
-                  <div style={{
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '50%',
-                    backgroundColor: '#1d3557',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    marginRight: '1rem'
-                  }}>RJ</div>
-                  <div>
-                    <h5 className="mb-0">Robert Johnson</h5>
-                    <small className="text-muted">Enthusiast</small>
-                  </div>
-                </div>
-                <p className="card-text">"I bought a bundle of 1970s newspapers as a gift for my father. He was thrilled to revisit the headlines from his youth. Great service and fast delivery!"</p>
-                <div className="text-warning">
-                  ★★★★☆
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Testimonials /Subscription Plans Section */}
+      <SubscriptionPlans />
+      
+      {/* Testimonials Section */}
+      <Testimonials />
     </div>
   );
 };

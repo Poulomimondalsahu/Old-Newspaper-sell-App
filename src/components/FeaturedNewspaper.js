@@ -8,7 +8,7 @@ const FeaturedNewspaper = ({ addToCart }) => {
     itemName: 'The Times - Moon Landing Special Edition (1969)',
     itemPrice: 1299,
     description: 'Extremely rare special edition of The Times covering the historic Apollo 11 moon landing in 1969. This perfectly preserved newspaper captures one of humanity\'s greatest achievements with original photographs and firsthand reporting.',
-    imageUrl: 'https://images.unsplash.com/photo-1541726260-e6b6a6a08b27?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    imageUrl: '/image/im11.jpeg',
     features: [
       'Original 1969 print in excellent condition',
       'Complete coverage of the Apollo 11 mission',
